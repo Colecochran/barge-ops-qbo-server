@@ -655,7 +655,10 @@
     // ========================
     // QBO DATA LAYER — CONSTANTS & STATE
     // ========================
-    const QBO_SERVER = 'http://localhost:3000';
+    const QBO_SERVER =
+    window.location.hostname === 'localhost'
+        ? 'http://localhost:3000'
+        : window.location.origin;
     const SAMPLE_MODE_KEY = 'qbo_sample_mode';
     let qboData = null;
     let dataSource = 'sample'; // 'sample' | 'live'
