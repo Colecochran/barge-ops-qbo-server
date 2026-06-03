@@ -7,6 +7,13 @@ const cors     = require('cors');
 const path     = require('path');
 const { parsePnL, parsePnLByClass, parseCustomerSales, parseExpenseBreakdown } = require('./qbo-transformer');
 
+console.log("ENV CHECK:", {
+  CLIENT_ID: process.env.QBO_CLIENT_ID,
+  CLIENT_SECRET: process.env.QBO_CLIENT_SECRET,
+  REDIRECT_URI: process.env.QBO_REDIRECT_URI,
+  DASHBOARD_URL: process.env.DASHBOARD_URL
+});
+
 const PORT          = parseInt(process.env.PORT || '3000', 10);
 const CLIENT_ID     = process.env.QBO_CLIENT_ID;
 const CLIENT_SECRET = process.env.QBO_CLIENT_SECRET;
