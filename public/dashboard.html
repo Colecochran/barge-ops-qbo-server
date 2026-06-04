@@ -664,7 +664,7 @@
     const chartRegistry = {};
 
     // === Utility ===
-    function formatCurrency(n) { return '$' + n.toLocaleString('en-US'); }
+    function formatCurrency(n) { return '$' + (n).toFixed(2).toLocaleString('en-US'); }
     function formatPct(n) { return (n || 0).toFixed(1) + '%'; }
     function fmt(n) { return '$' + n.toLocaleString('en-US'); }
     function fmtK(n) { return '$' + (n / 1000).toFixed(0) + 'k'; }
@@ -729,13 +729,14 @@
 
         // === KPI Cards ===
         const kpiTotalRevEl = document.getElementById('kpi-total-revenue');
-        const kpiNetProfitEl = document.getElementById('kpi-net-profit');
-        const kpiNetMarginEl = document.getElementById('kpi-net-margin');
-        const kpiTotalExpEl = document.getElementById('kpi-total-expenses');
         const kpiBargeRevEl = document.getElementById('kpi-barge-revenue');
         const kpiConstructionRevEl = document.getElementById('kpi-construction-revenue');
+        const kpiTotalExpEl = document.getElementById('kpi-total-expenses');
+        const kpiNetProfitEl = document.getElementById('kpi-net-profit');
+        const kpiNetMarginEl = document.getElementById('kpi-net-margin');
 
         if (data.pnl) {
+            console.log(data.pnl)
             if (kpiTotalRevEl && data.pnl.totalRevenue != null) kpiTotalRevEl.textContent = formatCurrency(data.pnl.totalRevenue);
             if (kpiNetProfitEl && data.pnl.totalNetIncome != null) kpiNetProfitEl.textContent = formatCurrency(data.pnl.totalNetIncome);
             if (kpiNetMarginEl && data.pnl.netMarginPct != null) kpiNetMarginEl.textContent = data.pnl.netMarginPct + '%';
