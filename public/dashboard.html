@@ -664,7 +664,7 @@
     const chartRegistry = {};
 
     // === Utility ===
-    function formatCurrency(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+    function formatCurrency(n) { return '$' + n.toLocaleString('en-US'); }
     function formatPct(n) { return (n || 0).toFixed(1) + '%'; }
     function fmt(n) { return '$' + n.toLocaleString('en-US'); }
     function fmtK(n) { return '$' + (n / 1000).toFixed(0) + 'k'; }
