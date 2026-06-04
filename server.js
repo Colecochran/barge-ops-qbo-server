@@ -267,6 +267,68 @@ app.get('/api/pnl', requireAuth, async (req, res) => {
     }
 });
 
+// Aggregate endpoint the dashboard expects
+app.get('/api/all', requireAuth, async (req, res) => {
+    try {
+        const { start = '2024-01-01', end = '2026-12-31' } = req.query;
+
+        // Run all QBO report calls in parallel
+        const [pnlRaw, byClassRaw, customerRaw, projectsRaw] = await Promise.all([
+            qboGet(req.realmId, '/reports/ProfitAndLoss', {
+                start_date: start,
+                end_date: end,
+                summarize_column_by: 'Month'
+            }),
+            qboGet(req.realmId, '/reports/ProfitAndLoss', {
+                start_date: start,
+                end_date: end,
+                summarize_column_by: 'Class'
+            }).catch(() => null),
+            qboGet(req.realmId, '/reports/CustomerIncome', {
+                start_date: start,
+                end_date: end
+            }).catch(() => null),
+            qboGet(req.realmId, '/query', {
+                query: "SELECT * FROM Customer WHERE Job = true MAXRESULTS 100"
+            }).catch(() => null)
+        ]);
+
+        const pnl = parsePnL(pnlRaw);
+        const byClass = byClassRaw ? parsePnLByClass(byClassRaw) : [];
+        const customers = customerRaw ? parseCustomerSales(customerRaw) : [];
+        const expenseBreakdown = pnl ? parseExpenseBreakdown(pnl) : [];
+
+        // revenueByStream: use class breakdown if available, otherwise fall back to income line items
+        let revenueByStream = [];
+        if (byClass && byClass.length > 0) {
+            revenueByStream = byClass.map(c => ({
+                name: c.className,
+                revenue: c.revenue,
+                monthly: null // class report is not month-summarized here
+            }));
+        } else if (pnl && pnl.incomeItems && pnl.incomeItems.length > 0) {
+            revenueByStream = pnl.incomeItems.map(item => ({
+                name: item.name,
+                revenue: item.total,
+                monthly: item.monthly
+            }));
+        }
+
+        // Projects: QBO sub-customers (Job=true) mapped to a flat list
+        const projects = (projectsRaw?.QueryResponse?.Customer || []).map(c => ({
+            id: c.Id,
+            name: c.DisplayName || c.FullyQualifiedName || c.PrintOnCheckName,
+            customerName: c.ParentRef?.name || null,
+            status: c.Active === false ? 'Inactive' : 'Active'
+        }));
+
+        res.json({ pnl, revenueByStream, customers, expenseBreakdown, byClass, projects });
+    } catch (e) {
+        console.error('[/api/all]', e.message);
+        res.status(500).json({ error: e.message });
+    }
+});
+
 // ─────────────────────────────────────────────
 // PAGES
 // ─────────────────────────────────────────────
