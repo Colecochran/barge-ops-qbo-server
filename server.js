@@ -14,6 +14,26 @@ const {
     parseExpenseBreakdown
 } = require('./qbo-transformer');
 
+const { db } = require("./firebase");
+
+app.get("/test-firestore", async (req, res) => {
+
+    await db.collection("test")
+        .doc("hello")
+        .set({
+            message: "Firestore works!",
+            timestamp: new Date()
+        });
+
+    const doc = await db
+        .collection("test")
+        .doc("hello")
+        .get();
+
+    res.json(doc.data());
+
+});
+
 const PORT = parseInt(process.env.PORT || '3000', 10);
 
 const BASE_URL =
