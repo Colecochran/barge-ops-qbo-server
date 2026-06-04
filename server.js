@@ -240,7 +240,10 @@ app.get('/api/status', requireAuth, async (req, res) => {
 
 // ─── Main data endpoint (dashboard calls this) ───────────────────────────────
 app.get('/api/all', requireAuth, async (req, res) => {
-    const { start = '2024-01-01', end = '2026-12-31' } = req.query;
+    const now      = new Date();
+    const ytdStart = now.getFullYear() + '-01-01';
+    const ytdEnd   = now.toISOString().slice(0, 10);
+    const { start = ytdStart, end = ytdEnd } = req.query;
 
     console.log(`[/api/all] Fetching QBO data for realm ${req.realmId}  ${start} → ${end}`);
 
@@ -329,7 +332,10 @@ app.use((err, _req, res, _next) => {
 // ─── Legacy individual endpoint ──────────────────────────────────────────────
 app.get('/api/pnl', requireAuth, async (req, res) => {
     try {
-        const { start = '2024-01-01', end = '2026-12-31' } = req.query;
+        const now      = new Date();
+        const ytdStart = now.getFullYear() + '-01-01';
+        const ytdEnd   = now.toISOString().slice(0, 10);
+        const { start = ytdStart, end = ytdEnd } = req.query;
         const raw = await qboGet(req.realmId, '/reports/ProfitAndLoss', {
             start_date: start,
             end_date:   end,

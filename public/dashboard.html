@@ -702,7 +702,10 @@
         try {
             const controller = new AbortController();
             const timeout = setTimeout(() => controller.abort(), 10000);
-            const resp = await fetch(QBO_SERVER + '/api/all', { signal: controller.signal });
+            const now = new Date();
+            const ytdStart = now.getFullYear() + '-01-01';
+            const ytdEnd   = now.toISOString().slice(0, 10);
+            const resp = await fetch(QBO_SERVER + '/api/all?start=' + ytdStart + '&end=' + ytdEnd, { signal: controller.signal });
             clearTimeout(timeout);
             const data = await resp.json();
             qboData = data;
