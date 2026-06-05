@@ -12,54 +12,71 @@ function extractValues(colData = []) {
 }
 
 function collectDataRows(rows = []) {
-  const out = [];
-  for (const row of rows) {
-    if (row.type === 'Data' && row.ColData) {
-      out.push({ name: row.ColData[0]?.value || '', id: row.ColData[0]?.id || null, values: extractValues(row.ColData) });
-    } else if (row.type === 'Section') {
-      out.push(...collectDataRows(row.Rows?.Row || []));
+    const out = [];
+
+    for (const row of rows) {
+        
+
+        if (row.type === 'Data' && row.ColData) {
+            out.push({
+                name: row.ColData[0]?.value || '',
+                id: row.ColData[0]?.id || null,
+                values: extractValues(row.ColData)
+            });
+        }
+        else if (row.type === 'Section') {
+            out.push(...collectDataRows(row.Rows?.Row || []));
+        }
     }
-  }
-  return out;
+
+    return out;
 }
 
 function parsePnL(report) {
-  if (!report?.Rows?.Row) return null;
-  const allRows = report.Rows.Row;
-  const colDefs = report.Columns?.Column || [];
-  const months  = colDefs.slice(1, -1).map(c => c.ColTitle.replace(' 20', " '"));
+    if (!report?.Rows?.Row) return null;
 
-  function sectionTotals(group) {
-    const sec = findSection(allRows, group);
-    if (!sec?.Summary?.ColData) return { monthly: [], total: 0 };
-    const vals = extractValues(sec.Summary.ColData);
-    return { monthly: vals.slice(0, months.length), total: vals[vals.length - 1] || 0 };
-  }
+    const allRows = report.Rows.Row;
+    const colDefs = report.Columns?.Column || [];
+    const months  = colDefs.slice(1, -1).map(c => c.ColTitle.replace(' 20', " '"));
 
-  const income   = sectionTotals('Income');
-  const cogs     = sectionTotals('COGS');
-  const expenses = sectionTotals('Expenses');
-  const grandRow = allRows.find(r => r.type === 'GrandTotal');
-  const grandVals = extractValues(grandRow?.ColData || []);
-  const netIncome = { monthly: grandVals.slice(0, months.length), total: grandVals[grandVals.length - 1] || 0 };
-  const grossProfit = { monthly: income.monthly.map((v, i) => v - (cogs.monthly[i] || 0)), total: income.total - cogs.total };
+    function sectionTotals(group) {
+        const sec = findSection(allRows, group);
+        if (!sec?.Summary?.ColData) return { monthly: [], total: 0 };
+        const vals = extractValues(sec.Summary.ColData);
+        return { monthly: vals.slice(0, months.length), total: vals[vals.length - 1] || 0 };
+    }
 
-  function lineItems(group) {
-    const sec = findSection(allRows, group);
-    return collectDataRows(sec?.Rows?.Row || []).map(item => ({
-      ...item, monthly: item.values.slice(0, months.length), total: item.values[item.values.length - 1] || 0
-    }));
-  }
+    const income   = sectionTotals('Income');
+    const cogs     = sectionTotals('COGS');
+    const expenses = sectionTotals('Expenses');
+    const grandRow = findNetIncome(allRows);
+    const grandVals = extractRowValues(grandRow);
 
-  return {
-    months, income, cogs, expenses, grossProfit, netIncome,
-    totalRevenue: income.total, totalCOGS: cogs.total,
-    totalGrossProfit: grossProfit.total, totalExpenses: expenses.total, totalNetIncome: netIncome.total,
-    netMarginPct:   income.total > 0 ? +(netIncome.total   / income.total * 100).toFixed(1) : 0,
-    grossMarginPct: income.total > 0 ? +(grossProfit.total / income.total * 100).toFixed(1) : 0,
-    incomeItems: lineItems('Income'), expenseItems: lineItems('Expenses'), cogsItems: lineItems('COGS'),
-    reportPeriod: { start: report.Header?.StartPeriod, end: report.Header?.EndPeriod }
-  };
+    const netIncome = {
+        monthly: grandVals.slice(0, months.length),
+        total: grandVals[grandVals.length - 1] || 0
+    };
+
+    const grossProfit = { monthly: income.monthly.map((v, i) => v - (cogs.monthly[i] || 0)), total: income.total - cogs.total };
+
+    function lineItems(group) {
+        const sec = findSection(allRows, group);
+        return collectDataRows(sec?.Rows?.Row || []).map(item => ({
+          ...item, monthly: item.values.slice(0, months.length), total: item.values[item.values.length - 1] || 0
+        }));
+    }
+
+    const expenseSection = findSection(allRows, 'Expenses');
+
+    return {
+        months, income, cogs, expenses, grossProfit, netIncome,
+        totalRevenue: income.total, totalCOGS: cogs.total,
+        totalGrossProfit: grossProfit.total, totalExpenses: expenses.total, totalNetIncome: netIncome.total,
+        netMarginPct:   income.total > 0 ? +(netIncome.total   / income.total * 100).toFixed(1) : 0,
+        grossMarginPct: income.total > 0 ? +(grossProfit.total / income.total * 100).toFixed(1) : 0,
+        incomeItems: lineItems('Income'), expenseItems: lineItems('Expenses'), cogsItems: lineItems('COGS'),
+        reportPeriod: { start: report.Header?.StartPeriod, end: report.Header?.EndPeriod }
+    };
 }
 
 function parsePnLByClass(report) {
@@ -100,9 +117,54 @@ function parseCustomerSales(report) {
   return results.sort((a, b) => b.revenue - a.revenue);
 }
 
-function parseExpenseBreakdown(pnlParsed) {
-  if (!pnlParsed?.expenseItems) return [];
-  return [...pnlParsed.expenseItems].filter(e => e.total > 0).sort((a, b) => b.total - a.total).slice(0, 10);
+function parseExpenseBreakdown(pnlReport) {
+    const expenseSection = findSection(
+        pnlReport.Rows.Row,
+        "Expenses"
+    );
+
+    return expenseSection.Rows.Row
+        .filter(r => r.type === "Section")
+        .map(r => ({
+            name: r.Header.ColData[0].value,
+            total: extractValues(r.Summary.ColData).slice(-1)[0]
+        }))
+        .sort((a, b) => b.total - a.total);
+}
+
+function findNetIncome(allRows) {
+    // 1. Try explicit GrandTotal row
+    let row =
+        allRows.find(r => r.type === 'GrandTotal') ||
+        allRows.find(r => r.group === 'NetIncome') ||
+        allRows.find(r => r.group === 'Net Income');
+
+    // 2. If not found, try scanning for label
+    if (!row) {
+        row = allRows.find(r =>
+            r?.ColData?.some(c =>
+                c.value?.toLowerCase().includes('net income')
+            )
+        );
+    }
+
+    return row;
+}
+
+function extractRowValues(row) {
+    if (!row) return [];
+
+    // Try ColData first
+    if (row.ColData?.length) {
+        return extractValues(row.ColData);
+    }
+
+    // Fallback: Summary.ColData (VERY common in QBO)
+    if (row.Summary?.ColData?.length) {
+        return extractValues(row.Summary.ColData);
+    }
+
+    return [];
 }
 
 module.exports = { parsePnL, parsePnLByClass, parseCustomerSales, parseExpenseBreakdown };

@@ -282,10 +282,11 @@ app.get('/api/all', requireAuth, async (req, res) => {
     });
 
     // Parse
-    const pnl             = parsePnL(pnlRaw);
-    const byClass         = byClassRaw  ? parsePnLByClass(byClassRaw)    : [];
-    const customers       = customerRaw ? parseCustomerSales(customerRaw) : [];
-    const expenseBreakdown = pnl        ? parseExpenseBreakdown(pnl)      : [];
+    const pnl               = parsePnL(pnlRaw);
+    const byClass           = byClassRaw    ? parsePnLByClass(byClassRaw)       : [];
+    const customers         = customerRaw   ? parseCustomerSales(customerRaw)   : [];
+    const expenseBreakdown  = pnlRaw        ? parseExpenseBreakdown(pnlRaw)     : [];
+    const qboSynced         = pnlRaw && pnlRaw?.Rows?.Row?.length > 0 && pnl?.incomeItems?.length > 0;
 
     // revenueByStream: prefer class breakdown, fall back to income line items
     let revenueByStream = [];
@@ -320,7 +321,7 @@ app.get('/api/all', requireAuth, async (req, res) => {
 
     console.log(`[/api/all] Done — pnl months: ${pnl?.months?.length}, customers: ${customers.length}, projects: ${projects.length}`);
 
-    res.json({ pnl, revenueByStream, customers, expenseBreakdown, byClass, projects });
+    res.json({ qboSynced, pnl, revenueByStream, customers, expenseBreakdown, byClass, projects });
 });
 
 // Error wrapper for /api/all

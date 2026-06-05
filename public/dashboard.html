@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barge Ops Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -114,17 +115,9 @@
                 </div>
             </div>
             <div data-id="10" class="flex items-center gap-5">
-                <div data-id="11" class="hidden md:flex items-center gap-2 text-sm text-slate-300">
-                    <i data-id="12" data-lucide="calendar" class="w-4 h-4"></i>
-                    <span data-id="13">June 2, 2026</span>
-                </div>
                 <div data-id="14" id="header-sync-badge" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold badge-yellow">
                     <span data-id="15" class="w-2 h-2 rounded-full bg-amber-500 inline-block pulse-dot"></span>
                     <span data-id="16" id="header-badge-text">Running sample mode</span>
-                </div>
-                <div data-id="17" class="hidden md:flex items-center gap-2 text-sm text-slate-300">
-                    <i data-id="18" data-lucide="user" class="w-4 h-4"></i>
-                    <span data-id="19">Cindy</span>
                 </div>
             </div>
         </div>
@@ -150,7 +143,7 @@
                 </button>
             </div>
             <div data-id="34" class="modal-body">
-                <div data-id="35" class="setup-step">
+                <!-- <div data-id="35" class="setup-step">
                     <div data-id="36" class="step-number">1</div>
                     <div data-id="37" class="step-content">
                         <h4 data-id="38">Register App</h4>
@@ -177,13 +170,13 @@
                         <h4 data-id="57">Authorize</h4>
                         <p data-id="58">Click the button below to open the QBO authorization page in a new tab. After approving, refresh this dashboard.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div data-id="59" class="modal-footer">
                 <button data-id="60" class="btn-connect-qbo" id="btn-auth-qbo" style="width:100%;justify-content:center;padding:12px 20px;font-size:0.9375rem;">
                     Open QuickBooks Authorization →
                 </button>
-                <p data-id="61" class="note-text">The server must be running on localhost:3000 for authorization to work.</p>
+                <!-- <p data-id="61" class="note-text">The server must be running on localhost:3000 for authorization to work.</p> -->
                 <button data-id="62" class="btn-connect-qbo-outline" id="btn-check-connection" style="width:100%;justify-content:center;">
                     <svg data-id="63" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path data-id="64" fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H4.598a.75.75 0 00-.75.75v3.634a.75.75 0 001.5 0v-2.033l.364.363a7 7 0 0011.712-3.138.75.75 0 00-1.112-.231zm-5.6-7.17a.75.75 0 01.874-.607 7 7 0 014.126 2.353l.364.363V4.33a.75.75 0 011.5 0v3.634a.75.75 0 01-.75.75h-3.634a.75.75 0 010-1.5h2.433l-.312-.311a5.5 5.5 0 00-3.994-1.775.75.75 0 01-.607-.874z" clip-rule="evenodd"/></svg>
                     Check Connection
@@ -226,33 +219,33 @@
             <div data-id="82" id="kpi-row-e5f6" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
                 <div data-id="83" class="kpi-card">
                     <p data-id="84" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Total Revenue YTD</p>
-                    <p data-id="85" id="kpi-total-revenue" class="text-2xl font-bold tabular-nums text-navy-800">$1,847,320</p>
-                    <span data-id="86" class="text-xs font-semibold text-emerald-600">↑ 12.4%</span>
+                    <p data-id="85" id="kpi-total-revenue" class="text-2xl font-bold tabular-nums text-navy-800">$#,###,###.##</p>
+                    <span data-id="86" id="kpi-total-revenue-change" class="text-xs font-semibold text-emerald-600">↑ ##.#%</span>
                 </div>
                 <div data-id="87" class="kpi-card border-l-4 border-teal-500">
                     <p data-id="88" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Barge Runs Revenue</p>
-                    <p data-id="89" id="kpi-barge-revenue" class="text-2xl font-bold tabular-nums text-navy-800">$1,102,500</p>
-                    <span data-id="90" class="text-xs font-semibold text-emerald-600">↑ 8.1%</span>
+                    <p data-id="89" id="kpi-barge-revenue" class="text-2xl font-bold tabular-nums text-navy-800">$#,###,###</p>
+                    <span data-id="90" class="text-xs font-semibold text-emerald-600">↑ ##.#%</span>
                 </div>
                 <div data-id="91" class="kpi-card border-l-4 border-navy-800">
                     <p data-id="92" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Construction & Dock</p>
-                    <p data-id="93" id="kpi-construction-revenue" class="text-2xl font-bold tabular-nums text-navy-800">$744,820</p>
-                    <span data-id="94" class="text-xs font-semibold text-emerald-600">↑ 19.3%</span>
+                    <p data-id="93" id="kpi-construction-revenue" class="text-2xl font-bold tabular-nums text-navy-800">$###,###</p>
+                    <span data-id="94" class="text-xs font-semibold text-emerald-600">↑ ##.#%</span>
                 </div>
                 <div data-id="95" class="kpi-card">
                     <p data-id="96" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Total Expenses YTD</p>
-                    <p data-id="97" id="kpi-total-expenses" class="text-2xl font-bold tabular-nums text-navy-800">$1,384,190</p>
-                    <span data-id="98" class="text-xs font-semibold text-red-500">↑ 9.6%</span>
+                    <p data-id="97" id="kpi-total-expenses" class="text-2xl font-bold tabular-nums text-navy-800">$#,###,###</p>
+                    <span data-id="98" class="text-xs font-semibold text-red-500">↑ ##.#%</span>
                 </div>
                 <div data-id="99" class="kpi-card">
                     <p data-id="100" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Net Profit</p>
-                    <p data-id="101" id="kpi-net-profit" class="text-2xl font-bold tabular-nums text-emerald-700">$463,130</p>
-                    <span data-id="102" class="text-xs font-semibold text-emerald-600">↑ 18.7%</span>
+                    <p data-id="101" id="kpi-net-profit" class="text-2xl font-bold tabular-nums text-emerald-700">$###,###</p>
+                    <span data-id="102" class="text-xs font-semibold text-emerald-600">↑ ##.#%</span>
                 </div>
                 <div data-id="103" class="kpi-card">
                     <p data-id="104" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Net Margin</p>
-                    <p data-id="105" id="kpi-net-margin" class="text-2xl font-bold tabular-nums text-navy-800">25.1%</p>
-                    <span data-id="106" class="text-xs font-semibold text-emerald-600">↑ 1.5pts</span>
+                    <p data-id="105" id="kpi-net-margin" class="text-2xl font-bold tabular-nums text-navy-800">##.#%</p>
+                    <span data-id="106" class="text-xs font-semibold text-emerald-600">↑ ##.#pts</span>
                 </div>
             </div>
 
@@ -281,11 +274,11 @@
                     </div>
                     <div data-id="126" class="space-y-2">
                         <div data-id="127" class="alert-row alert-red">
-                            <p data-id="128" class="text-sm font-medium text-red-800">Dock Build – Lakeview Marina project 8% over budget ($6,240 variance)</p>
+                            <p data-id="128" class="text-sm font-medium text-red-800">Dock Build – Lakeview Marina project #% over budget ($#,### variance)</p>
                             <p data-id="129" class="text-xs text-red-600 mt-0.5">Immediate review required</p>
                         </div>
                         <div data-id="130" class="alert-row alert-yellow">
-                            <p data-id="131" class="text-sm font-medium text-amber-800">Fuel costs up 14% vs prior month — review vendor contract</p>
+                            <p data-id="131" class="text-sm font-medium text-amber-800">Fuel costs up ##% vs prior month — review vendor contract</p>
                             <p data-id="132" class="text-xs text-amber-600 mt-0.5">Cost control</p>
                         </div>
                         <div data-id="133" class="alert-row alert-yellow">
@@ -293,7 +286,7 @@
                             <p data-id="135" class="text-xs text-amber-600 mt-0.5">Scheduling attention</p>
                         </div>
                         <div data-id="136" class="alert-row alert-green">
-                            <p data-id="137" class="text-sm font-medium text-emerald-800">Riverstone Dock Project: on schedule, 62% complete</p>
+                            <p data-id="137" class="text-sm font-medium text-emerald-800">Riverstone Dock Project: on schedule, ##% complete</p>
                             <p data-id="138" class="text-xs text-emerald-600 mt-0.5">No action needed</p>
                         </div>
                     </div>
@@ -664,7 +657,7 @@
     const chartRegistry = {};
 
     // === Utility ===
-    function formatCurrency(n) { return '$' + (n).toFixed(2).toLocaleString('en-US'); }
+    function formatCurrency(n) { return '$' + (n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2})}
     function formatPct(n) { return (n || 0).toFixed(1) + '%'; }
     function fmt(n) { return '$' + n.toLocaleString('en-US'); }
     function fmtK(n) { return '$' + (n / 1000).toFixed(0) + 'k'; }
@@ -727,6 +720,8 @@
     function applyQBOData(data) {
         if (!data) return;
 
+        if (!data.qboSynced) return;
+
         // === KPI Cards ===
         const kpiTotalRevEl = document.getElementById('kpi-total-revenue');
         const kpiBargeRevEl = document.getElementById('kpi-barge-revenue');
@@ -735,12 +730,13 @@
         const kpiNetProfitEl = document.getElementById('kpi-net-profit');
         const kpiNetMarginEl = document.getElementById('kpi-net-margin');
 
+
         if (data.pnl) {
-            console.log(data.pnl)
             if (kpiTotalRevEl && data.pnl.totalRevenue != null) kpiTotalRevEl.textContent = formatCurrency(data.pnl.totalRevenue);
+
+            if (kpiTotalExpEl && data.pnl.totalExpenses != null) kpiTotalExpEl.textContent = formatCurrency(data.pnl.totalExpenses);
             if (kpiNetProfitEl && data.pnl.totalNetIncome != null) kpiNetProfitEl.textContent = formatCurrency(data.pnl.totalNetIncome);
             if (kpiNetMarginEl && data.pnl.netMarginPct != null) kpiNetMarginEl.textContent = data.pnl.netMarginPct + '%';
-            if (kpiTotalExpEl && data.pnl.totalExpenses != null) kpiTotalExpEl.textContent = formatCurrency(data.pnl.totalExpenses);
         }
 
         // Revenue by stream
@@ -798,27 +794,71 @@
         // === Rebuild Revenue Mix Doughnut ===
         if (data.revenueByStream && data.revenueByStream.length > 0 && data.pnl && data.pnl.totalRevenue) {
             const totalRev = data.pnl.totalRevenue;
-            const labels = data.revenueByStream.map(s => {
+
+            // 1. Sort by revenue descending
+            const sorted = [...data.revenueByStream].sort((a, b) => b.revenue - a.revenue);
+
+            // 2. Split top 4 and rest
+            const top = sorted.slice(0, 4);
+            const rest = sorted.slice(4);
+
+            const otherTotal = rest.reduce((sum, s) => sum + s.revenue, 0);
+
+            // 3. Build final dataset
+            const finalData = [
+                ...top,
+                ...(otherTotal > 0 ? [{
+                    name: 'Other',
+                    revenue: otherTotal
+                }] : [])
+            ];
+
+            const labels = finalData.map(s => {
                 const pct = ((s.revenue / totalRev) * 100).toFixed(1);
-                return s.name + ' (' + pct + '%)';
+                return `${s.name} (${pct}%)`;
             });
-            const values = data.revenueByStream.map(s => s.revenue);
-            const colors = [TEAL, NAVY, '#3b82f6', SLATE, '#8b5cf6', '#f59e0b'];
-            const totalLabel = totalRev >= 1000000 ? '$' + (totalRev / 1000000).toFixed(3) + 'M' : formatCurrency(totalRev);
+
+            const values = finalData.map(s => s.revenue);
+
+            const colors = [TEAL, NAVY, '#3b82f6', SLATE, '#8b5cf6', '#f59e0b', '#94a3b8'];
+
+            const totalLabel = totalRev >= 1000000
+                ? '$' + (totalRev / 1000000).toFixed(3) + 'M'
+                : formatCurrency(totalRev);
 
             if (chartRegistry['revMix']) chartRegistry['revMix'].destroy();
+
             const ctx = document.getElementById('chart-rev-mix-i9j0').getContext('2d');
+
             chartRegistry['revMix'] = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: labels,
-                    datasets: [{ data: values, backgroundColor: colors.slice(0, values.length), borderWidth: 0, cutout: '68%' }]
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors.slice(0, values.length),
+                        borderWidth: 0,
+                        cutout: '68%'
+                    }]
                 },
                 options: {
-                    responsive: true, maintainAspectRatio: false,
+                    responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
-                        legend: { position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', padding: 16, font: { family: 'Inter', size: 11 } } },
-                        tooltip: { callbacks: { label: ctx2 => ctx2.label + ': ' + formatCurrency(ctx2.parsed) } }
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                padding: 16,
+                                font: { family: 'Inter', size: 11 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx2 => `${ctx2.label}: ${formatCurrency(ctx2.parsed)}`
+                            }
+                        }
                     }
                 },
                 plugins: [{
@@ -831,6 +871,7 @@
                         c.textAlign = 'center';
                         c.textBaseline = 'middle';
                         c.fillText(totalLabel, width / 2, height / 2 - 6);
+
                         c.font = '400 11px Inter';
                         c.fillStyle = SLATE;
                         c.fillText('Total YTD', width / 2, height / 2 + 14);
@@ -841,27 +882,122 @@
         }
 
         // === Rebuild Expense Breakdown Horizontal Bar ===
-        if (data.expenses && Array.isArray(data.expenses) && data.expenses.length > 0) {
-            const top6 = data.expenses.slice(0, 6);
-            const expLabels = top6.map(e => e.name);
-            const expValues = top6.map(e => e.total);
-            const expColors = [TEAL, '#11857a', '#158f7f', NAVY, '#1a3a5e', '#2a4a6e'];
+        if (data.expenseBreakdown && Array.isArray(data.expenseBreakdown) && data.expenseBreakdown.length > 0) {
 
-            if (chartRegistry['expenseBar']) chartRegistry['expenseBar'].destroy();
-            const ctx = document.getElementById('chart-expense-k1l2').getContext('2d');
+            // Sort descending by total
+            const sorted = data.expenseBreakdown
+                .filter(e => Number(e.total) > 0)
+                .sort((a, b) => b.total - a.total);
+
+            // Top 4 categories
+            const top4 = sorted.slice(0, 4);
+
+            // Sum everything else
+            const otherTotal = sorted
+                .slice(4)
+                .reduce((sum, item) => sum + Number(item.total || 0), 0);
+
+            // Add "Other" if there are remaining categories
+            if (otherTotal > 0) {
+                top4.push({
+                    name: "Other",
+                    total: otherTotal
+                });
+            }
+
+            const expLabels = top4.map(e => e.name);
+            const expValues = top4.map(e => e.total);
+
+            const expColors = [
+                TEAL,
+                '#11857a',
+                '#158f7f',
+                NAVY,
+                '#2a4a6e'
+            ];
+
+            if (chartRegistry['expenseBar']) {
+                chartRegistry['expenseBar'].destroy();
+            }
+
+            const ctx = document
+                .getElementById('chart-expense-k1l2')
+                .getContext('2d');
+
             chartRegistry['expenseBar'] = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: expLabels,
-                    datasets: [{ data: expValues, backgroundColor: expColors.slice(0, expValues.length), borderRadius: 4 }]
+                    datasets: [{
+                        data: expValues,
+                        backgroundColor: expColors.slice(0, expLabels.length),
+                        borderRadius: 4
+                    }]
                 },
                 options: {
-                    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx2 => formatCurrency(ctx2.parsed.x) } } },
-                    scales: { x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { callback: v => fmtK(v), font: { family: 'Inter', size: 11 } } }, y: { grid: { display: false }, ticks: { font: { family: 'Inter', size: 11 } } } }
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx2 => formatCurrency(ctx2.parsed.x)
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(0,0,0,0.04)'
+                            },
+                            ticks: {
+                                callback: v => fmtK(v),
+                                font: {
+                                    family: 'Inter',
+                                    size: 11
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Inter',
+                                    size: 11
+                                }
+                            }
+                        }
+                    }
                 }
             });
         }
+
+        // if (data.expenses && Array.isArray(data.expenses) && data.expenses.length > 0) {
+        //     const top6 = data.expenses.slice(0, 6);
+        //     const expLabels = top6.map(e => e.name);
+        //     const expValues = top6.map(e => e.total);
+        //     const expColors = [TEAL, '#11857a', '#158f7f', NAVY, '#1a3a5e', '#2a4a6e'];
+
+        //     if (chartRegistry['expenseBar']) chartRegistry['expenseBar'].destroy();
+        //     const ctx = document.getElementById('chart-expense-k1l2').getContext('2d');
+        //     chartRegistry['expenseBar'] = new Chart(ctx, {
+        //         type: 'bar',
+        //         data: {
+        //             labels: expLabels,
+        //             datasets: [{ data: expValues, backgroundColor: expColors.slice(0, expValues.length), borderRadius: 4 }]
+        //         },
+        //         options: {
+        //             indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        //             plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx2 => formatCurrency(ctx2.parsed.x) } } },
+        //             scales: { x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { callback: v => fmtK(v), font: { family: 'Inter', size: 11 } } }, y: { grid: { display: false }, ticks: { font: { family: 'Inter', size: 11 } } } }
+        //         }
+        //     });
+        // }
 
         // === Rebuild Customer Table ===
         if (data.customers && Array.isArray(data.customers) && data.customers.length > 0) {
@@ -888,8 +1024,6 @@
 
         // === Rebuild Monthly P&L Table ===
         if (data.pnl && data.pnl.months && data.pnl.income && data.pnl.income.monthly) {
-
-            console.log(data.pnl.months, data.pnl.income.monthly)
             const months = data.pnl.months;
             const incomeM = data.pnl.income.monthly;
             const cogsM = data.pnl.cogs && data.pnl.cogs.monthly ? data.pnl.cogs.monthly : incomeM.map(() => 0);
