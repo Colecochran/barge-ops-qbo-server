@@ -260,9 +260,12 @@ app.get('/api/all', requireAuth, async (req, res) => {
         // P&L by class — optional (only works if Classes are enabled in QBO)
         qboGet(req.realmId, '/reports/ProfitAndLoss', {
             start_date: start,
-            end_date:   end,
-            summarize_column_by: 'Class'
-        }).catch(e => { console.warn('[/api/all] PnL-by-class skipped:', e.message); return null; }),
+            end_date: end,
+            summarize_column_by: "Classes"
+        }).catch(e => {
+            console.warn('[/api/all] PnL-by-class skipped:', e.message);
+            return null;
+        }),
 
         // Customer sales — optional
         qboGet(req.realmId, '/reports/CustomerSales', {
@@ -287,6 +290,8 @@ app.get('/api/all', requireAuth, async (req, res) => {
     const customers         = customerRaw   ? parseCustomerSales(customerRaw)   : [];
     const expenseBreakdown  = pnlRaw        ? parseExpenseBreakdown(pnlRaw)     : [];
     const qboSynced         = pnlRaw && pnlRaw?.Rows?.Row?.length > 0 && pnl?.incomeItems?.length > 0;
+
+    console.log(byClass.length)
 
     // revenueByStream: prefer class breakdown, fall back to income line items
     let revenueByStream = [];

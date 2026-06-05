@@ -15,17 +15,34 @@ function collectDataRows(rows = []) {
     const out = [];
 
     for (const row of rows) {
-        
 
+        // DATA ROWS
         if (row.type === 'Data' && row.ColData) {
+            const values = extractValues(row.ColData);
+
             out.push({
-                name: row.ColData[0]?.value || '',
-                id: row.ColData[0]?.id || null,
-                values: extractValues(row.ColData)
+                name: row.ColData?.[0]?.value || '',
+                id: row.ColData?.[0]?.id || null,
+                values,
+                total: values[values.length - 1] || 0
             });
         }
+
+        // SECTION RECURSION
         else if (row.type === 'Section') {
             out.push(...collectDataRows(row.Rows?.Row || []));
+        }
+
+        // 🔥 SUMMARY ROWS (THIS WAS MISSING)
+        else if (row.type === 'Section' && row.Summary?.ColData) {
+            const values = extractValues(row.Summary.ColData);
+
+            out.push({
+                name: row.Header?.ColTitle || 'Summary',
+                id: null,
+                values,
+                total: values[values.length - 1] || 0
+            });
         }
     }
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barge Ops Dashboard</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -201,9 +201,9 @@
                 <button data-id="74" class="tab-btn flex items-center gap-2 px-4 py-3.5 text-sm text-slate-500 whitespace-nowrap" data-tab="customers">
                     <i data-id="75" data-lucide="users" class="w-4 h-4"></i> Customer Trends
                 </button>
-                <button data-id="76" class="tab-btn flex items-center gap-2 px-4 py-3.5 text-sm text-slate-500 whitespace-nowrap" data-tab="scheduling">
+                <!-- <button data-id="76" class="tab-btn flex items-center gap-2 px-4 py-3.5 text-sm text-slate-500 whitespace-nowrap" data-tab="scheduling">
                     <i data-id="77" data-lucide="calendar" class="w-4 h-4"></i> Scheduling & Operations
-                </button>
+                </button> -->
                 <button data-id="78" class="tab-btn flex items-center gap-2 px-4 py-3.5 text-sm text-slate-500 whitespace-nowrap" data-tab="opkpis">
                     <i data-id="79" data-lucide="bar-chart-2" class="w-4 h-4"></i> Operational KPIs
                 </button>
@@ -465,116 +465,6 @@
             </div>
         </section>
 
-        <!-- ============ TAB 5: SCHEDULING & OPERATIONS ============ -->
-        <section data-id="266" id="tab-scheduling" class="tab-content">
-            <h2 data-id="267" class="text-xl font-bold text-navy-800 mb-6">Scheduling & Operations</h2>
-
-            <div data-id="268" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <div data-id="269" class="kpi-card">
-                    <p data-id="270" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Scheduled Runs (June)</p>
-                    <p data-id="271" class="text-2xl font-bold tabular-nums text-navy-800">38</p>
-                    <p data-id="272" class="text-xs text-slate-500">12 remaining</p>
-                </div>
-                <div data-id="273" class="kpi-card">
-                    <p data-id="274" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Fleet Utilization</p>
-                    <p data-id="275" class="text-2xl font-bold tabular-nums text-navy-800">78.4%</p>
-                </div>
-                <div data-id="276" class="kpi-card">
-                    <p data-id="277" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">On-Time Performance</p>
-                    <p data-id="278" class="text-2xl font-bold tabular-nums text-teal-600">94.2%</p>
-                </div>
-                <div data-id="279" class="kpi-card">
-                    <p data-id="280" class="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">Avg Daily Revenue (Runs)</p>
-                    <p data-id="281" class="text-2xl font-bold tabular-nums text-navy-800">$7,340</p>
-                </div>
-            </div>
-
-            <!-- Schedule Grid -->
-            <div data-id="282" class="card mb-6">
-                <h3 data-id="283" class="text-sm font-semibold text-navy-800 mb-4">Barge Run Schedule — Current Week (June 2–6, 2026)</h3>
-                <div data-id="284" class="scroll-wrap">
-                    <div data-id="285" class="min-w-[900px]">
-                        <div data-id="286" class="grid grid-cols-[120px_repeat(6,1fr)] gap-0 text-xs">
-                            <!-- Header -->
-                            <div data-id="287" class="py-2 px-2 font-semibold text-slate-500"></div>
-                            <div data-id="288" class="py-2 px-2 font-semibold text-slate-500 text-center border-b border-slate-200">6–8 AM</div>
-                            <div data-id="289" class="py-2 px-2 font-semibold text-slate-500 text-center border-b border-slate-200">8–10 AM</div>
-                            <div data-id="290" class="py-2 px-2 font-semibold text-slate-500 text-center border-b border-slate-200">10 AM–12 PM</div>
-                            <div data-id="291" class="py-2 px-2 font-semibold text-slate-500 text-center border-b border-slate-200">12–2 PM</div>
-                            <div data-id="292" class="py-2 px-2 font-semibold text-slate-500 text-center border-b border-slate-200">2–4 PM</div>
-                            <div data-id="293" class="py-2 px-2 font-semibold text-slate-500 text-center border-b border-slate-200">4–6 PM</div>
-
-                            <!-- Mon -->
-                            <div data-id="294" class="py-3 px-2 font-semibold text-navy-800 border-b border-slate-100">Mon Jun 2</div>
-                            <div data-id="295" class="py-2 px-1 border-b border-slate-100"><div data-id="296" class="schedule-block schedule-teal">Chelan Ferry<br data-id="297"/>Run #142</div></div>
-                            <div data-id="298" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="299" class="py-2 px-1 border-b border-slate-100"><div data-id="300" class="schedule-block schedule-teal">Manson<br data-id="301"/>Orchards</div></div>
-                            <div data-id="302" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="303" class="py-2 px-1 border-b border-slate-100"><div data-id="304" class="schedule-block schedule-teal">Apple Country<br data-id="305"/>Freight</div></div>
-                            <div data-id="306" class="py-2 px-1 border-b border-slate-100"></div>
-
-                            <!-- Tue -->
-                            <div data-id="307" class="py-3 px-2 font-semibold text-navy-800 border-b border-slate-100">Tue Jun 3</div>
-                            <div data-id="308" class="py-2 px-1 border-b border-slate-100"><div data-id="309" class="schedule-block schedule-teal">Chelan Ferry<br data-id="310"/>Run #143</div></div>
-                            <div data-id="311" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="312" class="py-2 px-1 border-b border-slate-100"><div data-id="313" class="schedule-block schedule-open">OPEN<br data-id="314"/>Available</div></div>
-                            <div data-id="315" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="316" class="py-2 px-1 border-b border-slate-100"><div data-id="317" class="schedule-block schedule-teal">Wapato<br data-id="318"/>Point</div></div>
-                            <div data-id="319" class="py-2 px-1 border-b border-slate-100"></div>
-
-                            <!-- Wed -->
-                            <div data-id="320" class="py-3 px-2 font-semibold text-navy-800 border-b border-slate-100">Wed Jun 4</div>
-                            <div data-id="321" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="322" class="py-2 px-1 border-b border-slate-100"><div data-id="323" class="schedule-block schedule-teal">Chelan Ferry<br data-id="324"/>Run #144</div></div>
-                            <div data-id="325" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="326" class="py-2 px-1 border-b border-slate-100"><div data-id="327" class="schedule-block schedule-teal">Chelan Valley<br data-id="328"/>Farms</div></div>
-                            <div data-id="329" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="330" class="py-2 px-1 border-b border-slate-100"><div data-id="331" class="schedule-block schedule-teal">Riverstone<br data-id="332"/>Resort</div></div>
-
-                            <!-- Thu -->
-                            <div data-id="333" class="py-3 px-2 font-semibold text-navy-800 border-b border-slate-100">Thu Jun 5</div>
-                            <div data-id="334" class="py-2 px-1 border-b border-slate-100"><div data-id="335" class="schedule-block schedule-teal">Apple Country<br data-id="336"/>Freight</div></div>
-                            <div data-id="337" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="338" class="py-2 px-1 border-b border-slate-100"><div data-id="339" class="schedule-block schedule-teal">Manson<br data-id="340"/>Orchards</div></div>
-                            <div data-id="341" class="py-2 px-1 border-b border-slate-100"></div>
-                            <div data-id="342" class="py-2 px-1 border-b border-slate-100"><div data-id="343" class="schedule-block schedule-open">OPEN<br data-id="344"/>Available</div></div>
-                            <div data-id="345" class="py-2 px-1 border-b border-slate-100"></div>
-
-                            <!-- Fri -->
-                            <div data-id="346" class="py-3 px-2 font-semibold text-navy-800">Fri Jun 6</div>
-                            <div data-id="347" class="py-2 px-1"></div>
-                            <div data-id="348" class="py-2 px-1"><div data-id="349" class="schedule-block schedule-teal">Chelan Ferry<br data-id="350"/>Run #145</div></div>
-                            <div data-id="351" class="py-2 px-1"><div data-id="352" class="schedule-block schedule-navy">Chelan Bay<br data-id="353"/>Dev. Delivery</div></div>
-                            <div data-id="354" class="py-2 px-1"></div>
-                            <div data-id="355" class="py-2 px-1"><div data-id="356" class="schedule-block schedule-open">OPEN<br data-id="357"/>Available</div></div>
-                            <div data-id="358" class="py-2 px-1"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Upcoming Schedule Table -->
-            <div data-id="359" class="card">
-                <h3 data-id="360" class="text-sm font-semibold text-navy-800 mb-4">Upcoming Schedule Summary</h3>
-                <div data-id="361" class="scroll-wrap">
-                    <table data-id="362" class="w-full text-sm">
-                        <thead data-id="363">
-                            <tr data-id="364" class="bg-slate-50 text-xs font-semibold text-slate-500 uppercase tracking-wide">
-                                <th data-id="365" class="px-4 py-3 text-left">Date</th>
-                                <th data-id="366" class="px-4 py-3 text-left">Run #</th>
-                                <th data-id="367" class="px-4 py-3 text-left">Customer</th>
-                                <th data-id="368" class="px-4 py-3 text-left">Route</th>
-                                <th data-id="369" class="px-4 py-3 text-left">Cargo / Type</th>
-                                <th data-id="370" class="px-4 py-3 text-center">Crew</th>
-                                <th data-id="371" class="px-4 py-3 text-center">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody data-id="372" id="schedule-body-i5j6"></tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
         <!-- ============ TAB 6: OPERATIONAL KPIs ============ -->
         <section data-id="373" id="tab-opkpis" class="tab-content">
             <h2 data-id="374" class="text-xl font-bold text-navy-800 mb-6">Operational KPIs</h2>
@@ -722,6 +612,8 @@
 
         if (!data.qboSynced) return;
 
+        console.log(data)
+
         // === KPI Cards ===
         const kpiTotalRevEl = document.getElementById('kpi-total-revenue');
         const kpiBargeRevEl = document.getElementById('kpi-barge-revenue');
@@ -739,56 +631,131 @@
             if (kpiNetMarginEl && data.pnl.netMarginPct != null) kpiNetMarginEl.textContent = data.pnl.netMarginPct + '%';
         }
 
+        function sumStream(data, keywords) {
+            return data
+                .filter(s =>
+                    keywords.some(k => s.name.toLowerCase().includes(k))
+                )
+                .reduce((sum, s) => sum + (s.revenue || 0), 0);
+        }
+
+        function sumStreamMonthly(rows, keywords, monthsLen) {
+            const monthly = Array(monthsLen).fill(0);
+
+            for (const row of rows) {
+                const name = row.name.toLowerCase();
+
+                if (!keywords.some(k => name.includes(k))) continue;
+                if (!row.values) continue;
+
+                for (let i = 0; i < monthsLen; i++) {
+                    monthly[i] += row.values[i] || 0;
+                }
+            }
+
+            return monthly;
+        }
+
         // Revenue by stream
         if (data.revenueByStream && Array.isArray(data.revenueByStream)) {
-            const bargeStream = data.revenueByStream.find(s => /barge/i.test(s.name));
-            const constructionStream = data.revenueByStream.find(s => /construct/i.test(s.name));
-            if (kpiBargeRevEl && bargeStream) kpiBargeRevEl.textContent = formatCurrency(bargeStream.revenue);
-            if (kpiConstructionRevEl && constructionStream) kpiConstructionRevEl.textContent = formatCurrency(constructionStream.revenue);
+            
+
+            const bargeStream = sumStream(data.revenueByStream, ['barge', 'freight', 'crew boat']);
+            const constructionStream = sumStream(data.revenueByStream, ['project', 'marine', 'land', 'construction']);
+
+            console.log(constructionStream)
+            if (kpiBargeRevEl && bargeStream) kpiBargeRevEl.textContent = formatCurrency(bargeStream);
+            if (kpiConstructionRevEl && constructionStream) kpiConstructionRevEl.textContent = formatCurrency(constructionStream);
         }
 
         // === Rebuild Monthly Revenue Bar Chart ===
         if (data.pnl && data.pnl.months) {
             const months = data.pnl.months;
-            let bargeMonthly, constructionMonthly;
+            const monthsLen = months.length;
 
-            if (data.revenueByStream && data.revenueByStream.length >= 2) {
-                const bargeStream = data.revenueByStream.find(s => /barge/i.test(s.name));
-                const constructionStream = data.revenueByStream.find(s => /construct/i.test(s.name));
-                if (bargeStream && bargeStream.monthly) {
-                    bargeMonthly = bargeStream.monthly;
-                } else if (data.pnl.income && data.pnl.income.monthly) {
-                    bargeMonthly = data.pnl.income.monthly.map(v => Math.round(v * 0.6));
-                }
-                if (constructionStream && constructionStream.monthly) {
-                    constructionMonthly = constructionStream.monthly;
-                } else if (data.pnl.income && data.pnl.income.monthly) {
-                    constructionMonthly = data.pnl.income.monthly.map(v => Math.round(v * 0.4));
-                }
-            } else if (data.pnl.income && data.pnl.income.monthly) {
-                bargeMonthly = data.pnl.income.monthly.map(v => Math.round(v * 0.6));
-                constructionMonthly = data.pnl.income.monthly.map(v => Math.round(v * 0.4));
+            const incomeItems = data.pnl.incomeItems || [];
+
+            const bargeMonthly = sumStreamMonthly(
+                incomeItems,
+                ['barge', 'freight', 'crew boat', 'charter'],
+                monthsLen
+            );
+
+            const constructionMonthly = sumStreamMonthly(
+                incomeItems,
+                ['project', 'marine', 'land'],
+                monthsLen
+            );
+
+            if (!bargeMonthly || !constructionMonthly) {
+                console.warn("Revenue stream monthly data unavailable.");
+                return;
             }
 
-            if (bargeMonthly && constructionMonthly) {
-                if (chartRegistry['monthlyRev']) chartRegistry['monthlyRev'].destroy();
-                const ctx = document.getElementById('chart-monthly-rev-g7h8').getContext('2d');
-                chartRegistry['monthlyRev'] = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: months,
-                        datasets: [
-                            { label: 'Barge Runs', data: bargeMonthly, backgroundColor: TEAL, borderRadius: 4, borderSkipped: false },
-                            { label: 'Construction', data: constructionMonthly, backgroundColor: NAVY, borderRadius: 4, borderSkipped: false }
-                        ]
+            if (chartRegistry['monthlyRev']) chartRegistry['monthlyRev'].destroy();
+
+            const ctx = document
+                .getElementById('chart-monthly-rev-g7h8')
+                .getContext('2d');
+
+            chartRegistry['monthlyRev'] = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            label: 'Barge Runs',
+                            data: bargeMonthly,
+                            backgroundColor: TEAL,
+                            borderRadius: 4,
+                            borderSkipped: false
+                        },
+                        {
+                            label: 'Construction',
+                            data: constructionMonthly,
+                            backgroundColor: NAVY,
+                            borderRadius: 4,
+                            borderSkipped: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                padding: 20,
+                                font: { family: 'Inter', size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx2 =>
+                                    ctx2.dataset.label + ': ' + formatCurrency(ctx2.parsed.y)
+                            }
+                        }
                     },
-                    options: {
-                        responsive: true, maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', padding: 20, font: { family: 'Inter', size: 12 } } }, tooltip: { callbacks: { label: ctx2 => ctx2.dataset.label + ': ' + formatCurrency(ctx2.parsed.y) } } },
-                        scales: { x: { stacked: true, grid: { display: false }, ticks: { font: { family: 'Inter', size: 11 } } }, y: { stacked: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: v => fmtK(v), font: { family: 'Inter', size: 11 } } } }
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: { display: false },
+                            ticks: { font: { family: 'Inter', size: 11 } }
+                        },
+                        y: {
+                            stacked: true,
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: {
+                                callback: v => fmtK(v),
+                                font: { family: 'Inter', size: 11 }
+                            }
+                        }
                     }
-                });
-            }
+                }
+            });
         }
 
         // === Rebuild Revenue Mix Doughnut ===
@@ -864,18 +831,31 @@
                 plugins: [{
                     id: 'centerText',
                     beforeDraw(chart) {
-                        const { width, height, ctx: c } = chart;
-                        c.save();
-                        c.font = '700 22px Inter';
-                        c.fillStyle = NAVY;
-                        c.textAlign = 'center';
-                        c.textBaseline = 'middle';
-                        c.fillText(totalLabel, width / 2, height / 2 - 6);
+                        const { ctx } = chart;
+                        const {
+                            left,
+                            right,
+                            top,
+                            bottom
+                        } = chart.chartArea;
 
-                        c.font = '400 11px Inter';
-                        c.fillStyle = SLATE;
-                        c.fillText('Total YTD', width / 2, height / 2 + 14);
-                        c.restore();
+                        const centerX = (left + right) / 2;
+                        const centerY = ((top + bottom) / 2);
+
+                        ctx.save();
+
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+
+                        ctx.font = '700 22px Inter';
+                        ctx.fillStyle = NAVY;
+                        ctx.fillText(totalLabel, centerX, centerY - 8);
+
+                        ctx.font = '400 11px Inter';
+                        ctx.fillStyle = SLATE;
+                        ctx.fillText('Total YTD', centerX, centerY + 14);
+
+                        ctx.restore();
                     }
                 }]
             });
@@ -1553,35 +1533,35 @@
     // ========================
     // TAB 5: SCHEDULING
     // ========================
-    const scheduleData = [
-        { date: 'Jun 2', run: '#142', customer: 'Lake Chelan Ferry Authority', route: 'South Shore → North Shore', cargo: 'Freight & Materials', crew: 3, status: 'Confirmed' },
-        { date: 'Jun 2', run: '#143-M', customer: 'Manson Orchards LLC', route: 'Manson Bay Loop', cargo: 'Agricultural Supplies', crew: 2, status: 'Confirmed' },
-        { date: 'Jun 2', run: '#143-A', customer: 'Apple Country Freight', route: 'Chelan → 25 Mile Creek', cargo: 'Equipment', crew: 2, status: 'Confirmed' },
-        { date: 'Jun 3', run: '#143', customer: 'Lake Chelan Ferry Authority', route: 'South Shore → North Shore', cargo: 'Freight & Materials', crew: 3, status: 'Confirmed' },
-        { date: 'Jun 3', run: '#144-W', customer: 'Wapato Point LLC', route: 'Wapato Point Run', cargo: 'Construction Materials', crew: 2, status: 'Confirmed' },
-        { date: 'Jun 4', run: '#144', customer: 'Lake Chelan Ferry Authority', route: 'South Shore → North Shore', cargo: 'Freight & Materials', crew: 3, status: 'Confirmed' },
-        { date: 'Jun 4', run: '#144-V', customer: 'Chelan Valley Farms', route: 'Valley Loop', cargo: 'Produce & Feed', crew: 2, status: 'Tentative' },
-        { date: 'Jun 4', run: '#144-R', customer: 'Riverstone Resort', route: 'Resort Dock Run', cargo: 'Hospitality Supplies', crew: 2, status: 'Confirmed' },
-        { date: 'Jun 5', run: '#145-A', customer: 'Apple Country Freight', route: 'Chelan → 25 Mile Creek', cargo: 'Equipment', crew: 2, status: 'Confirmed' },
-        { date: 'Jun 6', run: '#145', customer: 'Lake Chelan Ferry Authority', route: 'South Shore → North Shore', cargo: 'Freight & Materials', crew: 3, status: 'Tentative' }
-    ];
+    // const scheduleData = [
+    //     { date: 'Jun 2', run: '#142', customer: 'Lake Chelan Ferry Authority', route: 'South Shore → North Shore', cargo: 'Freight & Materials', crew: 3, status: 'Confirmed' },
+    //     { date: 'Jun 2', run: '#143-M', customer: 'Manson Orchards LLC', route: 'Manson Bay Loop', cargo: 'Agricultural Supplies', crew: 2, status: 'Confirmed' },
+    //     { date: 'Jun 2', run: '#143-A', customer: 'Apple Country Freight', route: 'Chelan → 25 Mile Creek', cargo: 'Equipment', crew: 2, status: 'Confirmed' },
+    //     { date: 'Jun 3', run: '#143', customer: 'Lake Chelan Ferry Authority', route: 'South Shore → North Shore', cargo: 'Freight & Materials', crew: 3, status: 'Confirmed' },
+    //     { date: 'Jun 3', run: '#144-W', customer: 'Wapato Point LLC', route: 'Wapato Point Run', cargo: 'Construction Materials', crew: 2, status: 'Confirmed' },
+    //     { date: 'Jun 4', run: '#144', customer: 'Lake Chelan Ferry Authority', route: 'South Shore → North Shore', cargo: 'Freight & Materials', crew: 3, status: 'Confirmed' },
+    //     { date: 'Jun 4', run: '#144-V', customer: 'Chelan Valley Farms', route: 'Valley Loop', cargo: 'Produce & Feed', crew: 2, status: 'Tentative' },
+    //     { date: 'Jun 4', run: '#144-R', customer: 'Riverstone Resort', route: 'Resort Dock Run', cargo: 'Hospitality Supplies', crew: 2, status: 'Confirmed' },
+    //     { date: 'Jun 5', run: '#145-A', customer: 'Apple Country Freight', route: 'Chelan → 25 Mile Creek', cargo: 'Equipment', crew: 2, status: 'Confirmed' },
+    //     { date: 'Jun 6', run: '#145', customer: 'Lake Chelan Ferry Authority', route: 'South Shore → North Shore', cargo: 'Freight & Materials', crew: 3, status: 'Tentative' }
+    // ];
 
-    function renderSchedule() {
-        const tbody = document.getElementById('schedule-body-i5j6');
-        tbody.innerHTML = scheduleData.map((s, i) => {
-            const statusClass = s.status === 'Confirmed' ? 'badge-green' : s.status === 'Tentative' ? 'badge-yellow' : 'badge-red';
-            return `<tr class="${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'} border-b border-slate-100">
-                <td class="px-4 py-3 tabular-nums font-medium">${s.date}</td>
-                <td class="px-4 py-3 tabular-nums text-teal-700 font-semibold">${s.run}</td>
-                <td class="px-4 py-3 font-medium text-navy-800">${s.customer}</td>
-                <td class="px-4 py-3 text-slate-600">${s.route}</td>
-                <td class="px-4 py-3 text-slate-600">${s.cargo}</td>
-                <td class="px-4 py-3 text-center tabular-nums">${s.crew}</td>
-                <td class="px-4 py-3 text-center"><span class="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold ${statusClass}">${s.status}</span></td>
-            </tr>`;
-        }).join('');
-    }
-    renderSchedule();
+    // function renderSchedule() {
+    //     const tbody = document.getElementById('schedule-body-i5j6');
+    //     tbody.innerHTML = scheduleData.map((s, i) => {
+    //         const statusClass = s.status === 'Confirmed' ? 'badge-green' : s.status === 'Tentative' ? 'badge-yellow' : 'badge-red';
+    //         return `<tr class="${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'} border-b border-slate-100">
+    //             <td class="px-4 py-3 tabular-nums font-medium">${s.date}</td>
+    //             <td class="px-4 py-3 tabular-nums text-teal-700 font-semibold">${s.run}</td>
+    //             <td class="px-4 py-3 font-medium text-navy-800">${s.customer}</td>
+    //             <td class="px-4 py-3 text-slate-600">${s.route}</td>
+    //             <td class="px-4 py-3 text-slate-600">${s.cargo}</td>
+    //             <td class="px-4 py-3 text-center tabular-nums">${s.crew}</td>
+    //             <td class="px-4 py-3 text-center"><span class="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold ${statusClass}">${s.status}</span></td>
+    //         </tr>`;
+    //     }).join('');
+    // }
+    // renderSchedule();
 
     // ========================
     // TAB 6: OPERATIONAL KPIs
